@@ -1,0 +1,12 @@
+.header {
+    background: #000;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header__logo img {
+    height: 40px;
+}
