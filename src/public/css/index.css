@@ -1,0 +1,38 @@
+.item-contents {
+    display: flex;
+    flex-wrap: wrap;
+    width: 900px;
+}
+
+.item-content {
+    margin: 3px;
+    width: 270px;
+    box-shadow: 4px 4px rgb(224, 224, 224);
+    position: relative;
+}
+
+.item-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.img-content {
+    width: 270px;
+    height: 160px;
+}
+
+.detail-content {
+    display: flex;
+    background-color: white;
+    height: 45px;
+    position: relative;
+}
+
+.price-content {
+    display: inline-block;
+    position: absolute;
+    right: 20px
+}

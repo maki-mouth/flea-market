@@ -12,11 +12,20 @@
 </head>
 
 <body>
-<header class="header">
-    <div class="header__inner">
-        <a class="header__logo" href="/">
-            <img src="{{ asset('storage/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
-        </a>
+<header class="main-header">
+    {{-- ロゴリンク --}}
+    <a class="header__logo" href="/">
+        <img src="{{ asset('storage/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
+    </a>
+    {{-- 検索バー --}}
+    <div class="search-area">
+        <input type="search" placeholder="なにをお探しですか?" class="search-input">
+    </div>
+    {{-- アクションボタン --}}
+    <div class="actions">
+        <a href="" class="action-link">ログイン</a>
+        <a href="" class="action-link">マイページ</a>
+        <a href="" class="btn-primary">出品</a>
     </div>
 </header>
 
