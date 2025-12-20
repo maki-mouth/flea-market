@@ -150,7 +150,7 @@ class ItemTableSeeder extends Seeder
             'brand' => 'Starbacks',
             'category_id' => 10,
             'condition_id' => 1,
-            'image' => 'items/CoffeeMill.jpg',
+            'image' => 'items/CoffeeGrinder.jpg',
             'user_id' => 1,
             'status' => 0,
             'buyer_id' => null,

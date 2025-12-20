@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likedItems()
+    {
+        // likesテーブルを中間テーブルとして、Itemモデルと多対多のリレーションを張る
+        return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -12,9 +13,26 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tab = $request->query('tab', 'recommended');
+
+        $items = [];
+
+        if ($tab === 'mylist') {
+
+            if (Auth::check()) {
+                $items = Auth::user()->likedItems;
+            } else {
+                $items = collect(); // 空のコレクションを返す
+            }
+
+        } else {
+
+        $items = Item::all();
+        }
+
+        return view('index', compact('items', 'tab'));
     }
 
     /**

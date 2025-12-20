@@ -65,5 +65,10 @@ class Item extends Model
         return $this->belongsTo(User::class, 'buyer_id');
     }
 
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+    }
+
 
 }

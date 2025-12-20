@@ -1,14 +1,51 @@
+.tab-navigation {
+    display: flex;
+    margin-top: 40px;
+    padding: 10px 200px;
+    gap: 40px;
+    align-items: center;
+}
+
+.tab-item {
+    text-decoration: none;
+    color: #5F5F5F;
+    font-weight: bold;
+    font-size: 24px;
+    width: 155px;
+    height: 40px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+/* 選択中のタブ（赤文字・赤下線） */
+.tab-item.active {
+    color: #FF0000;
+}
+
+.tab-underline {
+    border: 0;
+    border-top: 5px solid #ddd;
+    margin-top: 0;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+}
+
 .item-contents {
     display: flex;
     flex-wrap: wrap;
-    width: 900px;
+    max-width: 1400px;
+    margin: 30px;
+    justify-content: flex-start;
 }
 
 .item-content {
     margin: 3px;
-    width: 270px;
-    box-shadow: 4px 4px rgb(224, 224, 224);
+    width: 290px;
     position: relative;
+    margin: 30px;
 }
 
 .item-link {
@@ -20,19 +57,20 @@
 }
 
 .img-content {
-    width: 270px;
-    height: 160px;
+    width: 290px;
+    height: 281.27px;
 }
 
 .detail-content {
     display: flex;
-    background-color: white;
-    height: 45px;
     position: relative;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
 }
 
-.price-content {
-    display: inline-block;
-    position: absolute;
-    right: 20px
+.item-name {
+    font-size: 25px;
+    line-height: 20px;
+    width: 290px;
 }
