@@ -17,7 +17,6 @@
     margin-left: 40px;
 }
 
-/* 選択中のタブ（赤文字・赤下線） */
 .tab-item.active {
     color: #FF0000;
 }

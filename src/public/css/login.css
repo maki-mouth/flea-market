@@ -1,12 +1,91 @@
-.header {
-    background: #000;
+/* public/css/login.css */
+
+/* 全体のコンテナ */
+.auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
-.header__inner {
-    margin: 0 auto;
-    padding: 20px;
+/* タイトル：ログイン [cite: 39] */
+.auth-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
 }
 
-.header__logo img {
-    height: 40px;
+/* フォーム全体のスタイル */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 各入力項目のグループ  */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* ラベル：太字 */
+.form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 入力欄 */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* ログインボタン [cite: 40] */
+.auth-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4d4d;
+    /* ブランドカラーの赤 */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+    background-color: #e64545;
+}
+
+/* フッター：会員登録はこちらへのリンク [cite: 41] */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.auth-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* バリデーションエラーメッセージ */
+.error {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
 }

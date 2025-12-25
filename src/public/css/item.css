@@ -1,0 +1,120 @@
+/* public/css/item.css */
+
+.item-detail-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+}
+
+/* 左側：画像セクション */
+.item-image-section {
+    flex: 1;
+    text-align: center;
+}
+
+.item-image-section img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+/* 右側：情報セクション */
+.item-info-section {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.item-brand {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.item-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* item.css に追加・修正 */
+
+.item-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.item-stat {
+    display: flex;
+    flex-direction: column;
+    /* アイコンの下に数字を置く場合 */
+    align-items: center;
+    /* 中央揃え */
+    gap: 5px;
+}
+
+.buy-button {
+    width: 100%;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.item-description h2,
+.item-details-table h2,
+.comment-section h2 {
+    font-size: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    width: 120px;
+    font-weight: bold;
+}
+
+.comment-item {
+    margin-bottom: 20px;
+}
+
+.comment-user {
+    font-weight: bold;
+    display: block;
+}
+
+.comment-form textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.comment-submit {
+    width: 100%;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}

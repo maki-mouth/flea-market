@@ -1,30 +1,44 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flea-market</title>
-    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-</head>
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
-<body>
-<header class="header">
-    <div class="header__inner">
-        <a class="header__logo" href="/">
-            <img src="{{ asset('storage/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
-        </a>
-    </div>
-</header>
+<div class="auth-container">
+    <h2 class="auth-title">会員登録</h2>
 
-<main>
+    <form method="POST" action="" class="auth-form">
+        @csrf
 
+        <div class="form-group">
+            <label>ユーザー名</label>
+            <input type="text" name="name" value="{{ old('name') }}" required autofocus>
+            @error('name') <span class="error">{{ $message }}</span> @enderror
+        </div>
 
+        <div class="form-group">
+            <label>メールアドレス</label>
+            <input type="email" name="email" value="{{ old('email') }}" required>
+            @error('email') <span class="error">{{ $message }}</span> @enderror
+        </div>
 
+        <div class="form-group">
+            <label>パスワード</label>
+            <input type="password" name="password" required>
+            @error('password') <span class="error">{{ $message }}</span> @enderror
+        </div>
 
-</main>
-</body>
+        <div class="form-group">
+            <label>確認用パスワード</label>
+            <input type="password" name="password_confirmation" required>
+        </div>
 
-</html>
+        <div class="form-actions">
+            <button type="submit" class="auth-button">登録する</button>
+        </div>
+
+        <div class="auth-footer">
+            <a href="" class="auth-link">ログインはこちら</a>
+        </div>
+    </form>
+</div>
+@endsection

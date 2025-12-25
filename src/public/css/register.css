@@ -1,12 +1,93 @@
-.header {
-    background: #000;
+/* public/css/register.css */
+
+/* 全体のコンテナ：中央寄せと幅の調整 */
+.auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 0 20px;
 }
 
-.header__inner {
-    margin: 0 auto;
-    padding: 20px;
+/* タイトル：会員登録  */
+.auth-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
 }
 
-.header__logo img {
-    height: 40px;
+/* フォーム全体のスタイル  */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 各入力項目のグループ：上下の余白  */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* ラベル：太字で入力欄の上に配置  */
+.form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 入力欄：幅いっぱいに広げ、角を少し丸める  */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+    /* パディングを含めて幅100%にする */
+}
+
+/* 登録ボタン：ブランドカラーの赤を使用  */
+.auth-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4d4d;
+    /* 商品詳細画面と共通の赤 */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+    background-color: #e64545;
+    /* ホバー時に少し暗くする */
+}
+
+/* フッター：ログインはこちらへのリンク  */
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.auth-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* エラーメッセージ：Fortifyのバリデーション用 */
+.error {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
 }

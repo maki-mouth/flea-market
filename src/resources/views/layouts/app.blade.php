@@ -15,7 +15,7 @@
 <header class="main-header">
     {{-- ロゴリンク --}}
     <a class="header__logo" href="/">
-        <img src="{{ asset('storage/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
+        <img src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
     </a>
     {{-- 検索バー --}}
     <div class="search-area">

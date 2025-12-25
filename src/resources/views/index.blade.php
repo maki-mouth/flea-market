@@ -20,7 +20,7 @@
     <div class="item-contents">
         @foreach ($items as $item)
         <div class="item-content">
-            <a href="/" class="item-link"></a>
+            <a href="{{ route('items.show', $item) }}" class="item-link"></a>
             <img src="{{ asset('storage/' . $item->image) }}" alt="商品画像" class="img-content" />
             <div class="detail-content">
                 <p class="item-name">{{$item->name}}</p>
@@ -29,6 +29,4 @@
         @endforeach
     </div>
 </main>
-
-
 @endsection
