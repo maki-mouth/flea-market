@@ -44,7 +44,7 @@
 
         <div class="item-description">
             <h2>商品説明</h2>
-            <p>{{ $item->description }}</p>
+            <p class="item-description-text">{{ $item->description }}</p>
         </div>
 
         <div class="item-details-table">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="comment-form">
-                <p>商品へのコメント</p>
+                <p class="comment-form-label">商品へのコメント</p>
                 <textarea rows="4"></textarea>
                 <button class="comment-submit">コメントを送信する</button>
             </div>

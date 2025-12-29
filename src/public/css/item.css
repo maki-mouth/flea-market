@@ -23,20 +23,18 @@
 }
 
 .item-name {
-    font-size: 28px;
-    margin-bottom: 5px;
+    font-size: 45px;
+    font-weight: bold;
+    margin: auto;
 }
 
 .item-brand {
     font-size: 16px;
-    color: #000000;
-    margin-bottom: 15px;
+    margin: auto;
 }
 
 .item-price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .item-stats {
@@ -59,10 +57,11 @@
     cursor: pointer;
 }
 
-.buy-button {
+.buy-button,
+.comment-submit {
     width: 100%;
     background-color: #ff5555;
-    color: white;
+    color: #ffffff;
     border: none;
     padding: 15px;
     font-size: 18px;
@@ -75,20 +74,28 @@
 .item-description h2,
 .item-details-table h2,
 .comment-section h2 {
-    font-size: 20px;
+    font-size: 36px;
+    font-weight: bold;
     padding-bottom: 10px;
     margin-top: 30px;
     margin-bottom: 15px;
 }
 
+.item-description-text {
+    font-size: 24px;
+    line-height: 1.6;
+}
+
 .detail-row {
     display: flex;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .detail-label {
-    width: 120px;
+    font-size: 24px;
     font-weight: bold;
+    margin-right: 20px;
 }
 
 .detail-value-tag {
@@ -102,12 +109,32 @@
         margin-right: 5px;
 }
 
+.detail-value {
+    font-size: 20px;
+}
+
 .comment-item {
     margin-bottom: 20px;
 }
 
 .comment-user {
+    font-size: 30px;
     font-weight: bold;
+    display: block;
+}
+
+.comment-text {
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 20px;
+    background-color: #D9D9D9;
+    border-radius: 4px;
+}
+
+.comment-form-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
     display: block;
 }
 
@@ -118,12 +145,3 @@
     padding: 10px;
 }
 
-.comment-submit {
-    width: 100%;
-    background-color: #ff5555;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-}
