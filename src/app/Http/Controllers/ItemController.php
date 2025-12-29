@@ -64,6 +64,8 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
+        $item->load('categories');
+
         return view('item', compact('item'));
     }
 

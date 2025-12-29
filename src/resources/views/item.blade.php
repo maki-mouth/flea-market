@@ -16,7 +16,7 @@
         <p class="item-price">¥{{ number_format($item->price) }}(税込)</p>
 
         <div class="item-stats">
-            <div class="stat-item">
+            <div class="item-stat">
                 @php
                     // 開発用にID 1のユーザーでお気に入り済みか判定
                     $dummyUser = \App\Models\User::first();
@@ -24,8 +24,8 @@
                 @endphp
                     <form action="{{ route('like.store', $item) }}" method="POST">
                         @csrf
-                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                            @if ($isLiked)
+                        <button type="submit">
+                            @if (Auth::check() && Auth::user()->likedItems->contains($item->id))
                                 <img src="{{ asset('img/ハートロゴ_ピンク.png') }}" alt="いいね解除">
                             @else
                                 <img src="{{ asset('img/ハートロゴ_デフォルト.png') }}" alt="いいね">
@@ -34,7 +34,7 @@
                     </form>
                 <span>{{ $item->likedByUsers->count() }}</span>
             </div>
-            <div class="stat-item">
+            <div class="item-stat">
                 <img src="{{ asset('img/フキダシロゴ.png') }}" alt="フキダシロゴ">
                 <span>1</span>
             </div>
@@ -51,9 +51,11 @@
             <h2>商品の情報</h2>
             <div class="detail-row">
                 <span class="detail-label">カテゴリー</span>
-                <span class="detail-value">
-                    {{ $item->category->name ?? '未設定' }}
+                @foreach($item->categories as $category)
+                <span class="detail-value-tag">
+                    {{ $category->name ?? '未設定' }}
                 </span>
+                @endforeach
             </div>
             <div class="detail-row">
                 <span class="detail-label">商品の状態</span>

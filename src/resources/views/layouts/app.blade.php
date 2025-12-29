@@ -23,7 +23,14 @@
     </div>
     {{-- アクションボタン --}}
     <div class="actions">
-        <a href="" class="action-link">ログイン</a>
+        @auth
+        <form method="POST" action="{{ route('logout') }}" class="logout-form">
+            @csrf
+            <button type="submit" class="action-link-out">ログアウト</button>
+        </form>
+        @else
+        <a href="{{ route('login') }}" class="action-link">ログイン</a>
+        @endauth
         <a href="" class="action-link">マイページ</a>
         <a href="" class="btn-primary">出品</a>
     </div>

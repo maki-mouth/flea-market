@@ -45,9 +45,9 @@ class Item extends Model
         'sold_at',
     ];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function condition()

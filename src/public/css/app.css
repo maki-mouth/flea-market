@@ -27,14 +27,28 @@
     gap: 50px;
 }
 
-.action-link {
-    font-weight: 600;
-    color: #ffffff;
-    text-decoration: none;
+.logout-form {
+    display: inline;
+    margin: 0;
 }
 
-.action-link:hover {
+.action-link,
+.action-link-out {
     color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.action-link:hover,
+.action-link-out:hover {
+    text-decoration: underline;
 }
 
 .btn-primary {
