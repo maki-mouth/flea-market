@@ -31,7 +31,7 @@
         @else
         <a href="{{ route('login') }}" class="action-link">ログイン</a>
         @endauth
-        <a href="" class="action-link">マイページ</a>
+        <a href="{{ route('mypage') }}" class="action-link">マイページ</a>
         <a href="" class="btn-primary">出品</a>
     </div>
 </header>

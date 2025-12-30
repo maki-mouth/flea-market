@@ -24,7 +24,7 @@ class ItemController extends Controller
             if (Auth::check()) {
                 $items = Auth::user()->likedItems;
             } else {
-                $items = collect(); // 空のコレクションを返す
+                $items = collect();
             }
 
         } else {

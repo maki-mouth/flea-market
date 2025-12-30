@@ -47,4 +47,9 @@ class User extends Authenticatable
         // likesテーブルを中間テーブルとして、Itemモデルと多対多のリレーションを張る
         return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
     }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }
