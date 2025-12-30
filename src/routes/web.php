@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +22,13 @@ Route::get('/', [ItemController::class, 'index'])->name('items.index');
 Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
 
 // ログイン中のみできるよ～
-Route::post('/item/{item}/like', [LikeController::class, 'store'])
-    ->name('like.store')
-    ->middleware('auth');
-
-    Route::middleware(['auth'])->group(function () {
-        Route::get('/mypage', [UserController::class, 'index'])->name('mypage');
-        // 表示画面
-        Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        // 更新処理
-        Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
-    });
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mypage', [UserController::class, 'index'])->name('mypage');
+    // 表示画面
+    Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // 更新処理
+    Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // コメント投稿
+    Route::post('/items/{item}/comment', [CommentController::class, 'store'])->name('comment.store');
+    Route::post('/item/{item}/like', [LikeController::class, 'store'])->name('like.store');
+});

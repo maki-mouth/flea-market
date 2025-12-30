@@ -66,16 +66,36 @@
         </div>
 
         <div class="comment-section">
-            <h2>コメント(1)</h2>
+            <h2>コメント ({{ $item->comments->count() }})</h2>
+            @foreach($item->comments as $comment)
             <div class="comment-item">
-                <span class="comment-user">admin</span>
-                <p class="comment-text">こちらにコメントが入ります。</p>
+                <div class="comment-user">
+                    {{-- プロフィール画像を表示 --}}
+                    @if($comment->user->profile && $comment->user->profile->profile_image)
+                        <img src="{{ asset('storage/' . $comment->user->profile->profile_image) }}" class="avatar">
+                    @endif
+                    <span>{{ $comment->user->name }}</span>
+                </div>
+                <p class="comment-text">{{ $comment->comment }}</p>
             </div>
+            @endforeach
 
             <div class="comment-form">
-                <p class="comment-form-label">商品へのコメント</p>
-                <textarea rows="4"></textarea>
-                <button class="comment-submit">コメントを送信する</button>
+                @auth
+                <form action="{{ route('comment.store', $item->id) }}" method="POST">
+                @csrf
+                    <p class="comment-form-label">商品へのコメント</p>
+                    <textarea name="comment" placeholder="コメントを入力してください"></textarea>
+                    <button class="comment-submit">コメントを送信する</button>
+                </form>
+                @else
+                <form action="{{ route('login') }}" method="POST">
+                @csrf
+                    <p class="comment-form-label">商品へのコメント</p>
+                    <textarea name="comment" placeholder="コメントを入力してください"></textarea>
+                    <button class="comment-submit">コメントを送信する</button>
+                </form>
+                @endauth
             </div>
         </div>
     </div>
