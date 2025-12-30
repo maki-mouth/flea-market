@@ -31,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
     // コメント投稿
     Route::post('/items/{item}/comment', [CommentController::class, 'store'])->name('comment.store');
     Route::post('/item/{item}/like', [LikeController::class, 'store'])->name('like.store');
+    Route::get('/sell', [ItemController::class, 'create'])->name('sell.create');
+    Route::post('/sell', [ItemController::class, 'store'])->name('sell.store');
 });
