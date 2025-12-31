@@ -23,6 +23,10 @@
             <a href="{{ route('items.show', $item) }}" class="item-link"></a>
             <img src="{{ asset('storage/' . $item->image) }}" alt="商品画像" class="img-content" />
             <div class="detail-content">
+            {{-- buyer_id があれば売り切れラベルを表示 --}}
+            @if($item->status === \App\Models\Item::STATUS_SOLD)
+                <div class="sold-label">Sold</div>
+            @endif
                 <p class="item-name">{{$item->name}}</p>
             </div>
         </div>

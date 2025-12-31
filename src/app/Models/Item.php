@@ -43,6 +43,7 @@ class Item extends Model
         'user_id',
         'buyer_id',
         'sold_at',
+        'payment_method',
     ];
 
     public function categories()

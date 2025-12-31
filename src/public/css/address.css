@@ -1,0 +1,57 @@
+.address-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.address-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* 更新ボタン */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4d4d;
+    /* 他の画面と共通の赤色 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #e60000;
+}
+
+.error-msg {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+}

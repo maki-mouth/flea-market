@@ -16,21 +16,20 @@
                     <div class="avatar-placeholder"></div>
                 @endif
             </div>
-            <h2 class="user-name">{{ $user->name }}</h2> {{-- [cite: 18] --}}
-            <a href="{{ route('profile.edit') }}" class="btn-edit-profile">プロフィールを編集</a> {{-- [cite: 19] --}}
+            <h2 class="user-name">{{ $user->name }}</h2>
+            <a href="{{ route('profile.edit') }}" class="btn-edit-profile">プロフィールを編集</a>
         </div>
     </div>
 
     {{-- タブメニューセクション --}}
     <div class="mypage-tabs">
-        <div class="tab-item active">
-            <a href="#">出品した商品</a> {{-- [cite: 16] --}}
+        <div class="tab-item {{ $tab === 'sell' ? 'active' : '' }}">
+            <a href="{{ route('mypage', ['tab' => 'sell']) }}">出品した商品</a>
         </div>
-        <div class="tab-item">
-            <a href="#">購入した商品</a> {{-- [cite: 17] --}}
+        <div class="tab-item {{ $tab === 'buy' ? 'active' : '' }}">
+            <a href="{{ route('mypage', ['tab' => 'buy']) }}">購入した商品</a>
         </div>
     </div>
-
     {{-- 商品グリッドセクション --}}
     <div class="item-grid">
         @foreach($items as $item)
@@ -43,7 +42,7 @@
                         <div class="image-placeholder">No Image</div>
                     @endif
                 </div>
-                <p class="item-name">{{ $item->name }}</p> {{-- [cite: 24] --}}
+                <p class="item-name">{{ $item->name }}</p>
             </div>
         @endforeach
     </div>

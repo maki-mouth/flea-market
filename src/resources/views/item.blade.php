@@ -40,7 +40,13 @@
             </div>
         </div>
 
-        <button class="buy-button">購入手続きへ</button>
+        <div class="detail-actions">
+            @if($item->status === \App\Models\Item::STATUS_SOLD)
+                <button class="btn-secondary" disabled>売り切れました</button>
+            @else
+                <a href="{{ route('purchase.show', $item->id) }}" class="btn-primary">購入手続きへ</a>
+            @endif
+        </div>
 
         <div class="item-description">
             <h2>商品説明</h2>

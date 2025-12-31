@@ -25,6 +25,7 @@ class CreateItemsTable extends Migration
             $table->unsignedTinyInteger('status')->default(0);
             $table->foreignId('buyer_id')->nullable()->constrained('users');
             $table->timestamp('sold_at')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
         });
     }
