@@ -123,3 +123,11 @@ textarea {
 .submit-btn:hover {
     background-color: #e60000;
 }
+
+.error {
+    color: #ff5555;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: block;
+}

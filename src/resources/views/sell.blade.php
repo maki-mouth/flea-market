@@ -23,23 +23,25 @@
                     <input type="file" name="image" id="item-image" accept="image/*" style="display:none;">
                 </label>
             </div>
-            @error('image') <p class="error-msg">{{ $message }}</p> @enderror
+            @error('image') <p class="error">{{ $message }}</p> @enderror
         </div>
 
         {{-- 商品の詳細 --}}
         <div class="form-section">
             <h2 class="section-sub-title">商品の詳細</h2>
-            
+
             <div class="form-group">
                 <label>カテゴリー</label>
                 <div class="category-grid">
                     @foreach($categories as $category)
                     <label class="category-item">
-                        <input type="checkbox" name="categories[]" value="{{ $category->id }}">
+                        <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                            {{ is_array(old('categories')) && in_array($category->id, old('categories')) ? 'checked' : '' }}>
                         <span>{{ $category->name }}</span>
                     </label>
                     @endforeach
                 </div>
+                @error('categories') <p class="error">{{ $message }}</p> @enderror
             </div>
 
             <div class="form-group">
@@ -48,10 +50,13 @@
                     <select name="condition_id" id="condition_id">
                         <option value="" disabled selected>選択してください</option>
                         @foreach($conditions as $condition)
-                            <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+                            <option value="{{ $condition->id }}" {{ old('condition_id') == $condition->id ? 'selected' : '' }}>
+                                {{ $condition->name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
+                @error('condition_id') <p class="error">{{ $message }}</p> @enderror
             </div>
         </div>
 
@@ -60,27 +65,23 @@
             <h2 class="section-sub-title">商品名と説明</h2>
             <div class="form-group">
                 <label for="name">商品名</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" value="{{ old('name') }}">
+            @error('name') <p class="error">{{ $message }}</p> @enderror
             </div>
             <div class="form-group">
                 <label for="brand">ブランド名</label>
-                <input type="text" name="brand" id="brand">
+                <input type="text" name="brand" id="brand" value="{{ old('brand') }}">
+            @error('brand') <p class="error">{{ $message }}</p> @enderror
             </div>
             <div class="form-group">
                 <label for="description">商品の説明</label>
-                <textarea name="description" id="description" rows="5"></textarea>
+                <textarea name="description" id="description" rows="5">{{ old('description') }}</textarea>
+            @error('description') <p class="error">{{ $message }}</p> @enderror
             </div>
-        </div>
-
-        {{-- 販売価格 --}}
-        <div class="form-section">
-            <h2 class="section-sub-title">販売価格</h2>
             <div class="form-group">
                 <label for="price">販売価格</label>
-                <div class="price-input-container">
-                    <span class="currency-unit">¥</span>
-                    <input type="number" name="price" id="price" placeholder="0">
-                </div>
+                <input type="number" name="price" id="price" placeholder="￥" value="{{ old('price') }}">
+            @error('price') <p class="error">{{ $message }}</p> @enderror
             </div>
         </div>
 

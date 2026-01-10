@@ -39,7 +39,8 @@
 }
 
 .setup-item {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
 }
 
 .setup-label {
@@ -61,10 +62,11 @@
 }
 
 .select-wrapper select {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-bottom: 20px;
 }
 
 /* サイドバー */
@@ -100,4 +102,12 @@
 
 .purchase-btn:hover {
     background-color: #e60000;
+}
+
+.error {
+    color: #ff5555;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: block;
 }

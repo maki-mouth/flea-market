@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PurchaseRequest;
+use App\Http\Requests\AddressRequest;
 
 class PurchaseController extends Controller
 {
@@ -18,7 +20,7 @@ class PurchaseController extends Controller
         return view('purchase', compact('item', 'user'));
     }
 
-    public function store(Request $request, $item_id)
+    public function store(PurchaseRequest $request, $item_id)
     {
         $item = Item::findOrFail($item_id);
 
@@ -52,14 +54,8 @@ class PurchaseController extends Controller
     }
 
     // 住所の更新処理
-    public function updateAddress(Request $request, $item_id)
+    public function updateAddress(AddressRequest $request, $item_id)
     {
-        // 1. バリデーション
-        $request->validate([
-            'postal_code' => 'required|max:8',
-            'address'     => 'required|max:255',
-            'building'    => 'nullable|max:255',
-        ]);
 
         $user = Auth::user();
 
@@ -75,7 +71,6 @@ class PurchaseController extends Controller
         );
 
         // 3. 購入画面へリダイレクト（商品IDを渡す）
-        return redirect()->route('purchase.show', ['item' => $item_id])
-                            ->with('message', '配送先を変更しました');
+        return redirect()->route('purchase.show', ['item' => $item_id]);
     }
 }

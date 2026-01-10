@@ -7,6 +7,7 @@ use App\Models\Condition;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ExhibitionRequest;
 
 
 class ItemController extends Controller
@@ -50,18 +51,9 @@ class ItemController extends Controller
         return view('sell', compact('conditions', 'categories'));
     }
 
-    public function store(Request $request)
+    public function store(ExhibitionRequest $request)
     {
-        // 1. バリデーション
-        $request->validate([
-            'name'         => 'required|string|max:255',
-            'description'  => 'required|string|max:1000',
-            'price'        => 'required|integer|min:0',
-            'condition_id' => 'required|exists:conditions,id',
-            'image'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'categories'   => 'required|array',
-        ]);
-
+        // 1. バリデーションはExhibitionRequestで実施済み
         // 2. 画像の保存
         // profilesの時と同様、publicディスクのitemsフォルダに保存します
         $path = $request->file('image')->store('items', 'public');
