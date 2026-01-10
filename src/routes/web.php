@@ -35,8 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/sell', [ItemController::class, 'store'])->name('sell.store');
     Route::get('/purchase/{item}', [PurchaseController::class, 'show'])->name('purchase.show');
     Route::post('/purchase/{item}', [PurchaseController::class, 'store'])->name('purchase.store');
-    // 表示
-    Route::get('/purchase/address/{item}', [PurchaseController::class, 'editAddress'])->name('address.edit');
-    // 更新
+    // 住所表示
+    Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit'])->name('address.edit');
+    // 住所更新
     Route::patch('/purchase/address/{item}', [PurchaseController::class, 'updateAddress'])->name('address.update');
 });

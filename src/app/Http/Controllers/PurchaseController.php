@@ -39,7 +39,7 @@ class PurchaseController extends Controller
     }
 
         // 住所変更画面の表示
-    public function editAddress($item_id)
+    public function edit($item_id)
     {
         $user = Auth::user();
         // プロフィール情報がない場合に備えて取得（既にある前提ですが念のため）

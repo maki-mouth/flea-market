@@ -42,9 +42,9 @@
 
         <div class="detail-actions">
             @if($item->status === \App\Models\Item::STATUS_SOLD)
-                <button class="btn-secondary" disabled>売り切れました</button>
+                <button class="sold-out-button" disabled>売り切れました</button>
             @else
-                <a href="{{ route('purchase.show', $item->id) }}" class="btn-primary">購入手続きへ</a>
+                <a href="{{ route('purchase.show', $item->id) }}" class="buy-button">購入手続きへ</a>
             @endif
         </div>
 

@@ -50,6 +50,7 @@
     gap: 5px;
 }
 
+
 .item-stat button {
     background: none;
     border: none;
@@ -57,7 +58,22 @@
     cursor: pointer;
 }
 
-.buy-button,
+.buy-button {
+    display:block;
+    width: 100%;
+    background-color: #ff5555;
+    color: #ffffff;
+    text-align: center;
+    text-decoration:none;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+.sold-out-button,
 .comment-submit {
     width: 100%;
     background-color: #ff5555;

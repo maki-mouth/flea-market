@@ -19,7 +19,9 @@
     </a>
     {{-- 検索バー --}}
     <div class="search-area">
-        <input type="search" placeholder="なにをお探しですか?" class="search-input">
+        <form action="{{ route('items.index') }}" method="GET" class="search-form">
+            <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか?">
+        </form>
     </div>
     {{-- アクションボタン --}}
     <div class="actions">

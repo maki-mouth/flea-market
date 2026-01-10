@@ -8,17 +8,26 @@
 
 .header__logo img {
     height: 40px;
-}
-
-.search-area {
-    color: #000000;
     display: block;
 }
 
-.search-input {
-    padding: 8px 8px 8px 36px;
-    border-radius: 6px;
-    width: 500px;
+.search-area {
+    flex: 1;
+    margin: 0 60px;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
 .actions {

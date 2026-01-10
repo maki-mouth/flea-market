@@ -14,27 +14,33 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $tab = $request->query('tab', 'recommended');
+        $keyword = $request->query('keyword'); // 検索ワードを取得
 
-        $items = [];
+        // クエリの基本形を作成
+        $query = Item::query();
 
-        if ($tab === 'mylist') {
-
-            $items = Auth::check() ? Auth::user()->likedItems : collect();
-
-        } else {
-
-            if (Auth::check()) {
-                // ログインしている場合：自分以外の出品商品を取得
-                $items = Item::where('user_id', '!=', Auth::id())->get();
-            } else {
-                // ログインしていない場合：すべての商品を表示
-                $items = Item::all();
-            }
-
+        // 部分一致検索のロジックを追加
+        if (!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%");
         }
 
-        return view('index', compact('items', 'tab'));
-    }
+        if ($tab === 'mylist') {
+            // マイリストタブ: 自分がいいねした商品
+            $items = Auth::check()
+                ? Auth::user()->likedItems()->where(function($q) use ($keyword) {
+                    if ($keyword) $q->where('name', 'LIKE', "%{$keyword}%");
+                })->get()
+                : collect();
+        } else {
+            // おすすめタブ: 自分以外の出品商品
+            if (Auth::check()) {
+                $query->where('user_id', '!=', Auth::id());
+            }
+            $items = $query->get();
+        }
+
+    return view('index', compact('items', 'tab'));
+}
 
     public function create()
     {

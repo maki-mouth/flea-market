@@ -13,7 +13,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 40px;
-    color: #333;
+    color: #000000;
 }
 
 /* フォーム全体のスタイル  */
@@ -51,7 +51,7 @@
 .auth-button {
     width: 100%;
     padding: 15px;
-    background-color: #ff4d4d;
+    background-color: #ff5555;
     /* 商品詳細画面と共通の赤 */
     color: #fff;
     font-size: 18px;
@@ -86,8 +86,9 @@
 
 /* エラーメッセージ：Fortifyのバリデーション用 */
 .error {
-    color: #ff4d4d;
+    color: #ff5555;
     font-size: 13px;
+    font-weight: bold;
     margin-top: 5px;
     display: block;
 }

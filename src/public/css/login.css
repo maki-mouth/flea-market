@@ -84,8 +84,9 @@
 
 /* バリデーションエラーメッセージ */
 .error {
-    color: #ff4d4d;
+    color: #ff5555;
     font-size: 13px;
+    font-weight: bold;
     margin-top: 5px;
     display: block;
 }

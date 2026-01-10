@@ -6,11 +6,11 @@
 
 @section('content')
 <div class="tab-navigation">
-    <a href="{{ route('items.index', ['tab' => 'recommended']) }}"
+    <a href="{{ route('items.index', ['tab' => 'recommended', 'keyword' => request('keyword')]) }}"
     class="tab-item {{ request('tab', 'recommended') == 'recommended' ? 'active' : '' }}">
     おすすめ
     </a>
-    <a href="{{ route('items.index', ['tab' => 'mylist']) }}"
+    <a href="{{ route('items.index', ['tab' => 'mylist', 'keyword' => request('keyword')]) }}"
     class="tab-item {{ request('tab') == 'mylist' ? 'active' : '' }}">
     マイリスト
     </a>
