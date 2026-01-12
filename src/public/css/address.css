@@ -1,7 +1,12 @@
-.address-container {
-    max-width: 600px;
+.container {
+    max-width: 1400px;
+    width: 90%;
     margin: 60px auto;
-    padding: 0 20px;
+}
+
+.address-container {
+    margin: 0 auto;
+    width: 680px;
 }
 
 .address-title {
@@ -35,7 +40,7 @@
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background-color: #ff4d4d;
+    background-color: #ff5555;
     /* 他の画面と共通の赤色 */
     color: white;
     border: none;

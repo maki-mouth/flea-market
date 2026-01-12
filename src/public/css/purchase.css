@@ -1,9 +1,8 @@
-.purchase-container {
-    max-width: 1000px;
-    margin: 40px auto;
+.container {
+    max-width: 1400px;
+    margin: 60px auto;
     display: flex;
     gap: 50px;
-    padding: 0 20px;
 }
 
 .purchase-main {
@@ -72,7 +71,6 @@
 /* サイドバー */
 .purchase-sidebar {
     flex: 1;
-    border: 1px solid #ddd;
     padding: 20px;
     height: fit-content;
 }
@@ -82,16 +80,20 @@
     margin-bottom: 20px;
 }
 
+.summary-table tr{
+    border: 1px solid #ddd;
+}
+
 .summary-table th,
 .summary-table td {
     padding: 10px 0;
-    text-align: left;
+    text-align: center;
 }
 
 .purchase-btn {
     width: 100%;
     padding: 15px;
-    background-color: #ff4d4d;
+    background-color: #ff5555;
     color: white;
     border: none;
     border-radius: 4px;

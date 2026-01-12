@@ -36,7 +36,7 @@
             </div>
             <div class="item-stat">
                 <img src="{{ asset('img/フキダシロゴ.png') }}" alt="フキダシロゴ">
-                <span>1</span>
+                <span>{{ $item->comments->count() }}</span>
             </div>
         </div>
 

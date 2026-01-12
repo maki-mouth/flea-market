@@ -5,18 +5,17 @@
 @endsection
 
 @section('content')
-<div class="tab-navigation">
-    <a href="{{ route('items.index', ['tab' => 'recommended', 'keyword' => request('keyword')]) }}"
-    class="tab-item {{ request('tab', 'recommended') == 'recommended' ? 'active' : '' }}">
-    おすすめ
-    </a>
-    <a href="{{ route('items.index', ['tab' => 'mylist', 'keyword' => request('keyword')]) }}"
-    class="tab-item {{ request('tab') == 'mylist' ? 'active' : '' }}">
-    マイリスト
-    </a>
-</div>
-<hr class="tab-underline">
-<main class="main-content">
+<div class="container">
+    <div class="tab-navigation">
+        <a href="{{ route('items.index', ['tab' => 'recommended', 'keyword' => request('keyword')]) }}"
+        class="tab-item {{ request('tab', 'recommended') == 'recommended' ? 'active' : '' }}">
+        おすすめ
+        </a>
+        <a href="{{ route('items.index', ['tab' => 'mylist', 'keyword' => request('keyword')]) }}"
+        class="tab-item {{ request('tab') == 'mylist' ? 'active' : '' }}">
+        マイリスト
+        </a>
+    </div>
     <div class="item-contents">
         @foreach ($items as $item)
         <div class="item-content">
@@ -32,5 +31,5 @@
         </div>
         @endforeach
     </div>
-</main>
+</div>
 @endsection

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="purchase-container">
+<div class="container">
     <div class="purchase-main">
         {{-- 商品情報 --}}
         <div class="product-info-section">
