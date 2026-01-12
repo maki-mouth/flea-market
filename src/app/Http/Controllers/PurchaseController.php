@@ -8,6 +8,8 @@ use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\PurchaseRequest;
 use App\Http\Requests\AddressRequest;
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
 
 class PurchaseController extends Controller
 {
@@ -29,16 +31,56 @@ class PurchaseController extends Controller
             return back();
         }
 
-        // 購入処理：buyer_id に自分のIDを入れて保存
+        $paymentMethod = $request->input('payment_method');
+
+        // --- A. カード払いの場合 (Stripe) ---
+        if ($paymentMethod === 'card' || $paymentMethod === 'konbini') {
+            Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        // 支払い方法のタイプを配列で用意
+        $paymentTypes = ($paymentMethod === 'card') ? ['card'] : ['konbini'];
+
+        $session = Session::create([
+            'payment_method_types' => $paymentTypes, // ここで切り替え
+            'customer_email' => Auth::user()->email,
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'product_data' => ['name' => $item->name],
+                    'unit_amount' => $item->price,
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            // コンビニ払いの場合は、Stripe側で支払い期限などの追加設定が可能
+            'payment_method_options' => [
+                'konbini' => [
+                    'expires_after_days' => 3, // 3日以内に支払い
+                ],
+            ],
+            'success_url' => route('purchase.success', ['item' => $item_id]),
+            'cancel_url' => route('purchase.show', ['item' => $item_id]),
+        ]);
+
+        return redirect($session->url);
+        }
+    }
+
+    public function success(Request $request, $item_id)
+    {
+        $item = Item::findOrFail($item_id);
+
+        // カード決済が完了したのでDBを更新
         $item->update([
             'buyer_id' => Auth::id(),
-            'payment_method' => $request->input('payment_method'),
             'status' => Item::STATUS_SOLD,
             'sold_at' => now(),
         ]);
 
+
         return redirect()->route('items.index');
     }
+
 
         // 住所変更画面の表示
     public function edit($item_id)
@@ -73,4 +115,5 @@ class PurchaseController extends Controller
         // 3. 購入画面へリダイレクト（商品IDを渡す）
         return redirect()->route('purchase.show', ['item' => $item_id]);
     }
+
 }

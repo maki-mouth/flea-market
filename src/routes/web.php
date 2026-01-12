@@ -39,4 +39,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'edit'])->name('address.edit');
     // 住所更新
     Route::patch('/purchase/address/{item}', [PurchaseController::class, 'updateAddress'])->name('address.update');
+    Route::get('/purchase/success/{item}', [PurchaseController::class, 'success'])->name('purchase.success');
 });
