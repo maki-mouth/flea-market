@@ -22,7 +22,7 @@ Route::get('/', [ItemController::class, 'index'])->name('items.index');
 Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
 
 // ログイン中のみできるよ～
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
     // 表示画面
     Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,4 +40,9 @@ Route::middleware(['auth'])->group(function () {
     // 住所更新
     Route::patch('/purchase/address/{item}', [PurchaseController::class, 'updateAddress'])->name('address.update');
     Route::get('/purchase/success/{item}', [PurchaseController::class, 'success'])->name('purchase.success');
-});
+
+    });
+    
+    Route::get('/debug/verify', function () {
+        return view('auth.verify-email');
+    });

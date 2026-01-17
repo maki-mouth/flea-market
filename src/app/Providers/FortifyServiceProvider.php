@@ -74,5 +74,9 @@ class FortifyServiceProvider extends ServiceProvider
                 \Laravel\Fortify\Actions\PrepareAuthenticatedSession::class,
             ];
         });
+
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email'); // resources/views/auth/verify-email.blade.php を作成
+        });
     }
 }
