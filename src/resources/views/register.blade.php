@@ -1,41 +1,36 @@
 @extends('layouts.app')
 
-@section('content')
+@section('css')
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endsection
 
+@section('content')
 <div class="auth-container">
-    <h2 class="auth-title">会員登録</h2>
-
+    <div class="auth-title">会員登録</div>
     <form method="POST" action="{{ route('register') }}" class="auth-form" novalidate>
         @csrf
-
         <div class="form-group">
             <label>ユーザー名</label>
             <input type="text" name="name" value="{{ old('name') }}">
             @error('name') <span class="error">{{ $message }}</span> @enderror
         </div>
-
         <div class="form-group">
             <label>メールアドレス</label>
             <input type="text" name="email" value="{{ old('email') }}">
             @error('email') <span class="error">{{ $message }}</span> @enderror
         </div>
-
         <div class="form-group">
             <label>パスワード</label>
             <input type="password" name="password">
             @error('password') <span class="error">{{ $message }}</span> @enderror
         </div>
-
         <div class="form-group">
             <label>確認用パスワード</label>
             <input type="password" name="password_confirmation">
         </div>
-
         <div class="form-actions">
             <button type="submit" class="auth-button">登録する</button>
         </div>
-
         <div class="auth-footer">
             <a href="{{ route('login') }}" class="auth-link">ログインはこちら</a>
         </div>

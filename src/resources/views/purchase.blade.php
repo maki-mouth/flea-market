@@ -7,7 +7,6 @@
 @section('content')
 <div class="container">
     <div class="purchase-main">
-        {{-- 商品情報 --}}
         <div class="product-info-section">
             <div class="product-image">
                 <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
@@ -17,8 +16,6 @@
                 <p class="product-price">¥ {{ number_format($item->price) }} </p>
             </div>
         </div>
-
-        {{-- 設定セクション --}}
         <div class="setup-section">
             <div class="setup-item">
                 <h2 class="setup-label">支払い方法 </h2>
@@ -33,18 +30,15 @@
                     </select>
                 </div>
             </div>
-
             <div class="setup-item">
                 <div class="setup-header">
                     <h2 class="setup-label">配送先</h2>
                     <a href="{{ route('address.edit', ['item' => $item->id]) }}" class="change-link">変更する</a>
                 </div>
-                {{-- エラーメッセージの表示 --}}
                 @error('address')
                     <p class="error">{{ $message }}</p>
                 @enderror
                 <div class="address-display">
-                    {{-- バリデーション用に現在の住所を隠しデータとして持たせる --}}
                     <input type="hidden" name="postal_code" value="{{ $user->profile->postal_code }}" form="purchase-form">
                     <input type="hidden" name="address" value="{{ $user->profile->address }}" form="purchase-form">
                     <input type="hidden" name="building" value="{{ $user->profile->building }}" form="purchase-form">
@@ -54,8 +48,6 @@
             </div>
         </div>
     </div>
-
-    {{-- サイドバー（確認・購入） --}}
     <aside class="purchase-sidebar">
         <table class="summary-table">
             <tr>
@@ -67,16 +59,13 @@
                 <td id="selected-payment">未選択</td>
             </tr>
         </table>
-
         <form action="{{ route('purchase.store', $item->id) }}" method="POST" id="purchase-form">
             @csrf
             <button type="submit" class="purchase-btn">購入する</button>
         </form>
     </aside>
 </div>
-
 <script>
-    // 選択した支払い方法を右側に反映させる
     document.getElementById('payment-select').addEventListener('change', function() {
         const text = this.options[this.selectedIndex].text;
         document.getElementById('selected-payment').innerText = text;

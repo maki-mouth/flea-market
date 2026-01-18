@@ -18,7 +18,6 @@ main {
     padding: 0 20px;
 }
 
-
 .message-box {
     margin-bottom: 40px;
 }
@@ -30,8 +29,8 @@ main {
     margin: 5px 0;
 }
 
-/* 「認証はこちらから」のテキスト */
 .instruction {
+    color: #000000;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
@@ -44,7 +43,6 @@ main {
     margin-bottom: 30px;
 }
 
-/* 再送ボタンのスタイリング */
 .resend-button {
     color: #007bff;
     text-decoration: none;

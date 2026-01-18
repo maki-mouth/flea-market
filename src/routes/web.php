@@ -42,7 +42,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/purchase/success/{item}', [PurchaseController::class, 'success'])->name('purchase.success');
 
     });
-    
-    Route::get('/debug/verify', function () {
-        return view('auth.verify-email');
-    });

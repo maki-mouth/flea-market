@@ -13,17 +13,14 @@
 
 <body>
 <header class="main-header">
-    {{-- ロゴリンク --}}
     <a class="header__logo" href="/">
         <img src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
     </a>
-    {{-- 検索バー --}}
     <div class="search-area">
         <form action="{{ route('items.index') }}" method="GET" class="search-form">
             <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか?">
         </form>
     </div>
-    {{-- アクションボタン --}}
     <div class="actions">
         @auth
         <form method="POST" action="{{ route('logout') }}" class="logout-form">
@@ -37,10 +34,8 @@
         <a href="{{ route('sell.create') }}" class="btn-primary">出品</a>
     </div>
 </header>
-
 <main>
     @yield('content')
 </main>
 </body>
-
 </html>

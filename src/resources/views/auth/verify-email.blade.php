@@ -25,7 +25,7 @@
         <p>メール認証を完了してください。</p>
     </div>
 
-    <a class="instruction">認証はこちらから</a>
+    <a href="https://mailtrap.io/inboxes" target="_blank" class="instruction">認証はこちらから</a>
 
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf

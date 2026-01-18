@@ -14,7 +14,6 @@
         <h1 class="item-name">{{ $item->name }}</h1>
         <p class="item-brand">{{ $item->brand }}</p>
         <p class="item-price">¥{{ number_format($item->price) }}(税込)</p>
-
         <div class="item-stats">
             <div class="item-stat">
                 @php
@@ -39,7 +38,6 @@
                 <span>{{ $item->comments->count() }}</span>
             </div>
         </div>
-
         <div class="detail-actions">
             @if($item->status === \App\Models\Item::STATUS_SOLD)
                 <button class="sold-out-button" disabled>売り切れました</button>
@@ -47,12 +45,10 @@
                 <a href="{{ route('purchase.show', $item->id) }}" class="buy-button">購入手続きへ</a>
             @endif
         </div>
-
         <div class="item-description">
             <h2>商品説明</h2>
             <p class="item-description-text">{{ $item->description }}</p>
         </div>
-
         <div class="item-details-table">
             <h2>商品の情報</h2>
             <div class="detail-row">
@@ -70,7 +66,6 @@
                 </span>
             </div>
         </div>
-
         <div class="comment-section">
             <h2>コメント ({{ $item->comments->count() }})</h2>
             @foreach($item->comments as $comment)
@@ -85,7 +80,6 @@
                 <p class="comment-text">{{ $comment->comment }}</p>
             </div>
             @endforeach
-
             <div class="comment-form">
                 @auth
                 <form action="{{ route('comment.store', $item->id) }}" method="POST">

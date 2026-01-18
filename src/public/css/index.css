@@ -11,12 +11,13 @@
     padding: 5px 100px;
     gap: 40px;
     align-items: center;
-    border-bottom: 3px solid #ddd;
+    border-bottom: 3px solid #D9D9D9;
 }
+
 
 .tab-item {
     text-decoration: none;
-    color: #5F5F5F;
+    color: #000000;
     font-weight: bold;
     font-size: 24px;
     width: 155px;
@@ -26,26 +27,13 @@
 }
 
 .tab-item.active {
-    color: #FF0000;
+    color: #FF5555;
 }
 
 .item-contents {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 通常は3列 */
-    gap: 20px;
-    /* アイテム間の隙間 */
-    width: 100%;
-    margin-top: 40px;
-}
-
-@media screen and (min-width: 1400px) {
-    .item-contents {
-        grid-template-columns: repeat(4, 1fr);
-        /* 4列に変更 */
-        gap: 20px;
-        /* 画面が広いので少し隙間を広げると見栄えが良くなります */
-    }
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
 }
 
 .item-content {
@@ -63,9 +51,8 @@
 .img-content {
     width: 100%;
     aspect-ratio: 1 / 1;
-    /* 正方形を維持 */
-    object-fit: cover;
-    display: block;
+    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .detail-content {
@@ -86,6 +73,6 @@
     position: absolute;
     right: 0;
     font-size: 20px;
-    color: #FF0000;
+    color: #FF5555;
     font-weight: bold;
 }

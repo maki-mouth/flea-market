@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="mypage-container">
-    {{-- ユーザー情報セクション --}}
     <div class="profile-header">
         <div class="profile-info">
             <div class="profile-avatar">
@@ -16,12 +15,10 @@
                     <div class="avatar-placeholder"></div>
                 @endif
             </div>
-            <h2 class="user-name">{{ $user->name }}</h2>
+            <div class="user-name">{{ $user->name }}</div>
             <a href="{{ route('profile.edit') }}" class="btn-edit-profile">プロフィールを編集</a>
         </div>
     </div>
-
-    {{-- タブメニューセクション --}}
     <div class="mypage-tabs">
         <div class="tab-item {{ $tab === 'sell' ? 'active' : '' }}">
             <a href="{{ route('mypage', ['tab' => 'sell']) }}">出品した商品</a>
@@ -30,12 +27,10 @@
             <a href="{{ route('mypage', ['tab' => 'buy']) }}">購入した商品</a>
         </div>
     </div>
-    {{-- 商品グリッドセクション --}}
     <div class="item-grid">
         @foreach($items as $item)
             <div class="item-card">
                 <div class="item-image">
-                    {{-- 商品画像がない場合のフォールバック --}}
                     @if($item->image)
                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
                     @else

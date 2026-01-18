@@ -9,12 +9,11 @@
     flex: 2;
 }
 
-/* 商品情報セクション */
 .product-info-section {
     display: flex;
     gap: 20px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #D9D9D9;
 }
 
 .product-image img {
@@ -32,14 +31,13 @@
     font-size: 20px;
 }
 
-/* 支払い・配送先 */
 .setup-section {
     margin-top: 30px;
 }
 
 .setup-item {
     margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #D9D9D9;
 }
 
 .setup-label {
@@ -63,12 +61,11 @@
 .select-wrapper select {
     width: 50%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #D9D9D9;
     border-radius: 4px;
     margin-bottom: 20px;
 }
 
-/* サイドバー */
 .purchase-sidebar {
     flex: 1;
     padding: 20px;
@@ -81,7 +78,7 @@
 }
 
 .summary-table tr{
-    border: 1px solid #ddd;
+    border: 1px solid #D9D9D9;
 }
 
 .summary-table th,
@@ -93,7 +90,7 @@
 .purchase-btn {
     width: 100%;
     padding: 15px;
-    background-color: #ff5555;
+    background-color: #FF5555;
     color: white;
     border: none;
     border-radius: 4px;
@@ -107,7 +104,7 @@
 }
 
 .error {
-    color: #ff5555;
+    color: #FF5555;
     font-size: 13px;
     font-weight: bold;
     margin-top: 5px;
