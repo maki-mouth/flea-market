@@ -16,11 +16,6 @@
         <p class="item-price">¥{{ number_format($item->price) }}(税込)</p>
         <div class="item-stats">
             <div class="item-stat">
-                @php
-                    // 開発用にID 1のユーザーでお気に入り済みか判定
-                    $dummyUser = \App\Models\User::first();
-                    $isLiked = $dummyUser ? $dummyUser->likedItems->contains($item->id) : false;
-                @endphp
                     <form action="{{ route('like.store', $item) }}" method="POST">
                         @csrf
                         <button type="submit">

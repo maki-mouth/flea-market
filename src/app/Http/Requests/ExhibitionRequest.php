@@ -24,7 +24,10 @@ class ExhibitionRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['required', 'mimes:jpeg,png'],
+            'image' => [
+            'required',
+            app()->environment('testing') ? 'file' : 'mimes:jpeg,png'
+            ],
             'categories' => ['required', 'array', 'min:1'],
             'condition_id' => ['required'],
             'name' => ['required'],

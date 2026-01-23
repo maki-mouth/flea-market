@@ -44,7 +44,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function likedItems()
     {
-        // likesテーブルを中間テーブルとして、Itemモデルと多対多のリレーションを張る
         return $this->belongsToMany(Item::class, 'likes')->withTimestamps();
     }
 
