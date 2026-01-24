@@ -26,7 +26,7 @@
                 @if($item->status === \App\Models\Item::STATUS_SOLD)
                     <div class="sold-label">Sold</div>
                 @endif
-                    <p class="item-name">{{$item->name}}</p>
+                <p class="item-name">{{$item->name}}</p>
                 </div>
             </div>
         @endforeach
