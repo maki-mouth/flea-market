@@ -12,13 +12,13 @@
                 <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
             </div>
             <div class="product-detail">
-                <h1 class="product-name">{{ $item->name }} </h1>
+                <div class="product-name">{{ $item->name }} </div>
                 <p class="product-price">¥ {{ number_format($item->price) }} </p>
             </div>
         </div>
         <div class="setup-section">
             <div class="setup-item">
-                <h2 class="setup-label">支払い方法 </h2>
+                <div class="setup-label">支払い方法 </div>
                 @error('payment_method')
                     <div class="error">{{ $message }}</div>
                 @enderror
@@ -32,7 +32,7 @@
             </div>
             <div class="setup-item">
                 <div class="setup-header">
-                    <h2 class="setup-label">配送先</h2>
+                    <div class="setup-label">配送先</div>
                     <a href="{{ route('address.edit', ['item' => $item->id]) }}" class="change-link">変更する</a>
                 </div>
                 @error('address')

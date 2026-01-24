@@ -26,43 +26,39 @@ class PurchaseController extends Controller
     {
         $item = Item::findOrFail($item_id);
 
-        // すでに売れていないかチェック
         if ($item->status === Item::STATUS_SOLD) {
             return back();
         }
 
         $paymentMethod = $request->input('payment_method');
 
-        // --- A. カード払いの場合 (Stripe) ---
         if ($paymentMethod === 'card' || $paymentMethod === 'konbini') {
             Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
-        // 支払い方法のタイプを配列で用意
-        $paymentTypes = ($paymentMethod === 'card') ? ['card'] : ['konbini'];
+            $paymentTypes = ($paymentMethod === 'card') ? ['card'] : ['konbini'];
 
-        $session = Session::create([
-            'payment_method_types' => $paymentTypes, // ここで切り替え
-            'customer_email' => Auth::user()->email,
-            'line_items' => [[
-                'price_data' => [
-                    'currency' => 'jpy',
-                    'product_data' => ['name' => $item->name],
-                    'unit_amount' => $item->price,
+            $session = Session::create([
+                'payment_method_types' => $paymentTypes,
+                'customer_email' => Auth::user()->email,
+                'line_items' => [[
+                    'price_data' => [
+                        'currency' => 'jpy',
+                        'product_data' => ['name' => $item->name],
+                        'unit_amount' => $item->price,
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'payment_method_options' => [
+                    'konbini' => [
+                        'expires_after_days' => 3,
+                    ],
                 ],
-                'quantity' => 1,
-            ]],
-            'mode' => 'payment',
-            // コンビニ払いの場合は、Stripe側で支払い期限などの追加設定が可能
-            'payment_method_options' => [
-                'konbini' => [
-                    'expires_after_days' => 3, // 3日以内に支払い
-                ],
-            ],
-            'success_url' => route('purchase.success', ['item' => $item_id]),
-            'cancel_url' => route('purchase.show', ['item' => $item_id]),
-        ]);
+                'success_url' => route('purchase.success', ['item' => $item_id]),
+                'cancel_url' => route('purchase.show', ['item' => $item_id]),
+            ]);
 
-        return redirect($session->url);
+            return redirect($session->url);
         }
     }
 
@@ -70,39 +66,26 @@ class PurchaseController extends Controller
     {
         $item = Item::findOrFail($item_id);
 
-        // カード決済が完了したのでDBを更新
         $item->update([
             'buyer_id' => Auth::id(),
             'status' => Item::STATUS_SOLD,
             'sold_at' => now(),
         ]);
 
-
         return redirect()->route('items.index');
     }
 
-
-        // 住所変更画面の表示
     public function edit($item_id)
     {
         $user = Auth::user();
-        // プロフィール情報がない場合に備えて取得（既にある前提ですが念のため）
         $user->load('profile');
 
-        return view('address', [
-            'user' => $user,
-            'item_id' => $item_id // 戻る先の特定に必要
-        ]);
+        return view('address', ['user' => $user,'item_id' => $item_id]);
     }
 
-    // 住所の更新処理
     public function updateAddress(AddressRequest $request, $item_id)
     {
-
         $user = Auth::user();
-
-        // 2. プロフィール情報の更新
-        // updateOrCreate を使うと、万が一プロフィール未作成でも作成されます
         Profile::updateOrCreate(
             ['user_id' => $user->id],
             [
@@ -112,8 +95,6 @@ class PurchaseController extends Controller
             ]
         );
 
-        // 3. 購入画面へリダイレクト（商品IDを渡す）
         return redirect()->route('purchase.show', ['item' => $item_id]);
     }
-
 }

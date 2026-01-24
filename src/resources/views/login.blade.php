@@ -12,12 +12,16 @@
         <div class="form-group">
             <label>メールアドレス</label>
             <input type="email" name="email" value="{{ old('email') }}">
-            @error('email') <span class="error">{{ $message }}</span> @enderror
+            @error('email')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-group">
             <label>パスワード</label>
             <input type="password" name="password">
-            @error('password') <span class="error">{{ $message }}</span> @enderror
+            @error('password')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-actions">
             <button type="submit" class="auth-button">ログインする</button>

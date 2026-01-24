@@ -9,23 +9,14 @@ class Item extends Model
 {
     use HasFactory;
 
-    public const STATUS_SELLING = 0; // 販売中（初期値）
-    public const STATUS_SOLD    = 1; // 売却済み
+    public const STATUS_SELLING = 0;
+    public const STATUS_SOLD    = 1;
 
-    // データベースの値（数値）と表示名（文字列）を対応させるマップ
     public const STATUS_MAP = [
         self::STATUS_SELLING => '販売中',
         self::STATUS_SOLD    => '売却済み',
     ];
 
-    /**いらないかも
-     * 現在のステータス名を日本語で取得するアクセサ
-     * * アクセサ: status_name属性を取得する
-     * データベースの値 (0, 1) を日本語名に変換して返します
-     * * Bladeテンプレートなどで $item->status_name として呼び出せます
-     *
-     * @return string
-     */
     public function getStatusNameAttribute(): string
     {
         return self::STATUS_MAP[$this->status] ?? '不明';

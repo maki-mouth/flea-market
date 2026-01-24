@@ -12,17 +12,23 @@
         <div class="form-group">
             <label>ユーザー名</label>
             <input type="text" name="name" value="{{ old('name') }}">
-            @error('name') <span class="error">{{ $message }}</span> @enderror
+            @error('name')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-group">
             <label>メールアドレス</label>
             <input type="text" name="email" value="{{ old('email') }}">
-            @error('email') <span class="error">{{ $message }}</span> @enderror
+            @error('email')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-group">
             <label>パスワード</label>
             <input type="password" name="password">
-            @error('password') <span class="error">{{ $message }}</span> @enderror
+            @error('password')
+                <span class="error">{{ $message }}</span>
+            @enderror
         </div>
         <div class="form-group">
             <label>確認用パスワード</label>

@@ -26,7 +26,7 @@ class LoginTest extends TestCase
             'password' => $password,
         ]);
 
-        $response->assertRedirect('/'); // あなたのアプリのトップページURLに合わせてください
+        $response->assertRedirect('/');
 
         $this->assertAuthenticatedAs($user);
     }

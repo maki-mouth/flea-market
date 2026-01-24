@@ -79,15 +79,12 @@ class IndexTest extends TestCase
 
     public function test_item_search_by_name_partial_match()
     {
-        // 1. 検索にヒットする商品としない商品を作成
         Item::factory()->create(['name' => '限定スニーカー']);
         Item::factory()->create(['name' => '中古の革靴']);
         Item::factory()->create(['name' => '青いシャツ']);
 
-        // 2. 「スニーカー」というワードで検索（クエリパラメータ ?keywor= を想定）
         $response = $this->get('/?keyword=スニーカー');
 
-        // 3. ヒットするはずの商品は見えて、しない商品は見えないことを確認
         $response->assertStatus(200);
         $response->assertSee('限定スニーカー');
         $response->assertDontSee('中古の革靴');
@@ -98,21 +95,15 @@ class IndexTest extends TestCase
     {
         $user = User::factory()->create();
 
-        // 1. 商品を2つ作成し、片方だけをお気に入りにする
         $favoriteItem = Item::factory()->create(['name' => 'お気に入りのスニーカー']);
         $otherItem = Item::factory()->create(['name' => '普通のスニーカー']);
 
-        // お気に入り登録処理（中間テーブルへの保存を想定）
         $user->likedItems()->attach($favoriteItem);
-        // 2. 「スニーカー」で検索しつつ、マイリストを表示
-        // 例：/?keyword=スニーカー&tab=mylist
         $response = $this->actingAs($user)->get('/?keyword=スニーカー&tab=mylist');
 
-        // 3. マイリストかつ検索条件に合うものだけが表示されているか
         $response->assertSee('お気に入りのスニーカー');
         $response->assertDontSee('普通のスニーカー');
 
-        // 4. 入力フォームに検索ワードが残っているかも確認できると最高です
         $response->assertSee('value="スニーカー"', false);
     }
 }

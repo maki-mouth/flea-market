@@ -14,12 +14,16 @@
             <div class="form-group">
                 <label for="postal_code">郵便番号</label>
                 <input type="text" name="postal_code" id="postal_code" value="{{ old('postal_code', $user->profile->postal_code ?? '') }}">
-                @error('postal_code') <a class="error">{{ $message }}</a> @enderror
+                @error('postal_code')
+                    <a class="error">{{ $message }}</a>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="address">住所</label>
                 <input type="text" name="address" id="address" value="{{ old('address', $user->profile->address ?? '') }}">
-                @error('address') <a class="error">{{ $message }}</a> @enderror
+                @error('address')
+                    <a class="error">{{ $message }}</a>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="building">建物名</label>

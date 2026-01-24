@@ -21,28 +21,38 @@
             <label class="avatar-label">
                 画像を選択する
                 <input type="file" name="profile_image" id="avatar-input" accept="profile_image/*" class="avatar-input">
-                @error('profile_image') <a class="error">{{ $message }}</a> @enderror
+                @error('profile_image')
+                    <a class="error">{{ $message }}</a>
+                @enderror
             </label>
         </div>
         <div class="form-group">
             <label for="name">ユーザー名</label>
             <input type="text" name="name" id="name" value="{{ old('name', $user->name) }}">
-            @error('name') <a class="error">{{ $message }}</a> @enderror
+            @error('name')
+                <a class="error">{{ $message }}</a>
+            @enderror
         </div>
         <div class="form-group">
             <label for="postal_code">郵便番号</label>
             <input type="text" name="postal_code" id="postal_code" value="{{ old('postal_code', $profile->postal_code) }}">
-            @error('postal_code') <a class="error">{{ $message }}</a> @enderror
+            @error('postal_code')
+                <a class="error">{{ $message }}</a>
+            @enderror
         </div>
         <div class="form-group">
             <label for="address">住所</label>
             <input type="text" name="address" id="address" value="{{ old('address', $profile->address) }}">
-            @error('address') <a class="error">{{ $message }}</a> @enderror
+            @error('address')
+                <a class="error">{{ $message }}</a>
+            @enderror
         </div>
         <div class="form-group">
             <label for="building">建物名</label>
             <input type="text" name="building" id="building" value="{{ old('building', $profile->building) }}">
-            @error('building') <a class="error">{{ $message }}</a> @enderror
+            @error('building')
+                <a class="error">{{ $message }}</a>
+            @enderror
         </div>
         <button type="submit" class="btn-submit">更新する</button>
     </form>
@@ -63,7 +73,6 @@
                     placeholder.style.display = 'none';
                 }
             }
-
             reader.readAsDataURL(file);
         }
     });

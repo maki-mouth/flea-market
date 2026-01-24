@@ -78,7 +78,7 @@
             <div class="comment-form">
                 @auth
                 <form action="{{ route('comment.store', $item->id) }}" method="POST">
-                @csrf
+                    @csrf
                     <p class="comment-form-label">商品へのコメント</p>
                     <textarea name="comment" placeholder="コメントを入力してください"></textarea>
                     @error('comment')
@@ -88,13 +88,13 @@
                 </form>
                 @else
                 <form action="{{ route('login') }}" method="POST">
-                @csrf
+                    @csrf
                     <p class="comment-form-label">商品へのコメント</p>
                     <textarea name="comment" placeholder="コメントを入力してください"></textarea>
                     <button class="comment-submit">コメントを送信する</button>
                 </form>
-                @endauth
             </div>
+            @endauth
         </div>
     </div>
 </div>

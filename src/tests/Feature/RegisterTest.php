@@ -73,7 +73,7 @@ class RegisterTest extends TestCase
         'name' => 'テストユーザー',
         'email' => 'fail@example.com',
         'password' => 'password123',
-        'password_confirmation' => 'different_password', // あえて違うものを入力
+        'password_confirmation' => 'different_password',
         ]);
 
         $this->assertDatabaseCount('users', 0);
