@@ -32,9 +32,9 @@ class AddressRequest extends FormRequest
     public function messages()
     {
         return [
-            'postal_code.required' => '郵便番号は必須項目です',
+            'postal_code.required' => '郵便番号を入力してください',
             'postal_code.regex' => '郵便番号はハイフン付きの形式で入力してください',
-            'address.required' => '住所は必須項目です',
+            'address.required' => '住所を入力してください',
         ];
     }
 }

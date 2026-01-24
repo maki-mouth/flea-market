@@ -34,13 +34,12 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'profile_image.image' => 'プロフィール画像は画像ファイルである必要があります',
             'profile_image.mimes' => 'jpegまたはpng形式の画像を選択してください',
-            'name.required' => '名前は必須です',
+            'name.required' => 'お名前を入力してください',
             'name.max' => '名前は20文字以内で入力してください',
-            'postal_code.required' => '郵便番号は必須です',
+            'postal_code.required' => '郵便番号を入力してください',
             'postal_code.regex' => '郵便番号はハイフン付きの8文字で入力してください',
-            'address.required' => '住所は必須です',
+            'address.required' => '住所を入力してください',
         ];
     }
 }

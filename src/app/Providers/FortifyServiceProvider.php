@@ -32,12 +32,10 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // ログイン画面の指定
         Fortify::loginView(function () {
             return view('login');
         });
 
-        // 会員登録画面の指定
         Fortify::registerView(function () {
             return view('register');
         });
@@ -76,7 +74,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::verifyEmailView(function () {
-            return view('auth.verify-email'); // resources/views/auth/verify-email.blade.php を作成
+            return view('auth.verify-email');
         });
     }
 }
