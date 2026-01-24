@@ -23,12 +23,12 @@
     </div>
     <div class="actions">
         @auth
-        <form method="POST" action="{{ route('logout') }}" class="logout-form">
-            @csrf
-            <button type="submit" class="action-link-out">ログアウト</button>
-        </form>
+            <form method="POST" action="{{ route('logout') }}" class="logout-form">
+                @csrf
+                <button type="submit" class="action-link-out">ログアウト</button>
+            </form>
         @else
-        <a href="{{ route('login') }}" class="action-link">ログイン</a>
+            <a href="{{ route('login') }}" class="action-link">ログイン</a>
         @endauth
         <a href="{{ route('mypage') }}" class="action-link">マイページ</a>
         <a href="{{ route('sell.create') }}" class="btn-primary">出品</a>

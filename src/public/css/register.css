@@ -1,3 +1,16 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #000000;
+}
+
+.header__logo img {
+    height: 40px;
+    display: block;
+}
+
 .auth-container {
     max-width: 450px;
     margin: 80px auto;

@@ -8,13 +8,11 @@
     <title>flea-market</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/verify-email.css') }}">
-    @yield('css')
 </head>
 
 <body>
 <header class="main-header">
     <a class="header__logo" href="/">
-        {{-- PDFのロゴ部分に対応  --}}
         <img src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="ヘッダーロゴ">
     </a>
 </header>
