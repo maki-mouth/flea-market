@@ -2,7 +2,7 @@
 
 ## 環境構築
 **Dockerビルド**
-1. git clone git@github.com:git@github.com:maki-mouth/flea-market.git
+1. git clone git@github.com:maki-mouth/flea-market.git
 2. cd flea-market
 
 3. DockerDesktopアプリを立ち上げる
